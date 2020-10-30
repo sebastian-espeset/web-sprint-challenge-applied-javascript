@@ -16,7 +16,19 @@ axios
     .get("https://lambda-times-api.herokuapp.com/topics")
     .then(res=>{
         console.log("good data",res);
+        const dataNest= res.data;
+        const topicsNest=dataNest.topics;
+        
     })
     .catch(err=>{
       console.log(err);
     })
+
+    function tabBuilder(data){
+        const tab=document.createElement('div');
+        tab.textContent=data;
+        return tab;
+
+    }
+    console.log(tabBuilder("this will be content"));
+    
