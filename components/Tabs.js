@@ -16,7 +16,7 @@ const tabsContainer= document.querySelector('.topics');
 axios
     .get("https://lambda-times-api.herokuapp.com/topics")
     .then(res=>{
-        console.log("good data",res);
+        // console.log("good data",res);
         const dataNest= res.data;
         const topicsNest=dataNest.topics;
         topicsNest.forEach(element => {
