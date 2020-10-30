@@ -12,13 +12,16 @@
 
 //fetching data
 //looks like res.data.topics
+const tabsContainer= document.querySelector('.topics');
 axios
     .get("https://lambda-times-api.herokuapp.com/topics")
     .then(res=>{
         console.log("good data",res);
         const dataNest= res.data;
         const topicsNest=dataNest.topics;
-        
+        topicsNest.forEach(element => {
+            tabsContainer.appendChild(tabBuilder(element));            
+        });
     })
     .catch(err=>{
       console.log(err);
@@ -30,5 +33,4 @@ axios
         return tab;
 
     }
-    console.log(tabBuilder("this will be content"));
-    
+//function works, time to iterate    
