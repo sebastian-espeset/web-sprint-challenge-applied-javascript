@@ -22,12 +22,16 @@
 // Use your function to create a card for each of the articles, and append each card to the DOM.
 
 //calling the data
+
+//articles is an object with key:title, value:array
 axios
     .get("https://lambda-times-api.herokuapp.com/articles")
     .then(res=>{
         const levelTwo=res.data;
         const articleObject= levelTwo.articles;
-        console.log(articleObject);       
+        for(const properties in articleObject){
+            console.log(articleObject[properties]);
+        }       
     })
     .catch(err=>{
         console.log("error:",err)
